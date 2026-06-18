@@ -26,8 +26,7 @@ if opcion == "🏠 Inicio":
     st.title("RetroVerse!")
     st.subheader("Reviví la nostalgia con objetos vintage, coleccionables y tecnología retro.")
     st.write("""
-    Bienvenido a RetroVerse, un e-commerce dedicado a la compra y venta
-    de objetos retro.
+    Bienvenido a RetroVerse, una tienda digital de objetos retro.
     
     Utilizá el menú de la izquierda para explorar el catálogo, buscar productos o ver el carrito.
     """)
