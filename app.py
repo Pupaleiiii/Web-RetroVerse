@@ -29,7 +29,7 @@ if opcion == "🏠 Inicio":
     Bienvenido a RetroVerse, un e-commerce dedicado a la compra y venta
     de objetos retro.
     
-    Utilizá el menú de la izquierda para explorar el catálogo o administrar productos.
+    Utilizá el menú de la izquierda para explorar el catálogo, buscar productos o ver el carrito.
     """)
 
 elif opcion == "📦 Ver catálogo":
