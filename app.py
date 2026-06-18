@@ -53,28 +53,39 @@ elif opcion == "📦 Ver catálogo":
         st.write("---")
 
 elif opcion == "🔍 Buscar producto":
-    st.header("Buscar producto por ID")
+    st.header("🔍 Buscar producto por ID")
 
     id_buscado = st.number_input(
-    "Buscar por ID",
-    min_value=1,
-    step=1
+        "Ingresá el ID del producto",
+        min_value=1,
+        step=1
     )
-    
-    if st.button("Buscar"):
-    
-        producto_buscado = buscar_producto(productos, id_buscado)
-    
-        if producto_buscado is not None:
-            st.success("Producto encontrado")
-            st.subheader(producto_buscado["nombre"])
-            st.write(f"**Categoría:** {producto_buscado['categoria']}")
-            st.write(f"**Marca/desarrollador:** {producto_buscado['marca/desarrollador']}")
-            st.write(f"**Año:** {producto_buscado['año']}")
-            st.write(f"**Precio:** ${producto_buscado['precio']}")
-            st.write(f"**Estado:** {producto_buscado['estado']}")
-        else:
-            st.error("Producto no encontrado")
+
+    producto_buscado = buscar_producto(productos, id_buscado)
+
+    if producto_buscado is not None:
+        st.success("Producto encontrado")
+
+        st.subheader(producto_buscado["nombre"])
+        st.write(f"**Categoría:** {producto_buscado['categoria']}")
+        st.write(f"**Marca/desarrollador:** {producto_buscado['marca/desarrollador']}")
+        st.write(f"**Año:** {producto_buscado['año']}")
+        st.write(f"**Precio:** ${producto_buscado['precio']}")
+        st.write(f"**Estado:** {producto_buscado['estado']}")
+        st.write(f"**Stock:** {producto_buscado['stock']}")
+        st.write(f"**Descripción:** {producto_buscado['descripcion']}")
+
+        if st.button(
+            "🛒 Agregar al carrito",
+            key=f"agregar_{producto_buscado['id']}"
+        ):
+            st.session_state.carrito.append(producto_buscado)
+            st.success(
+                f"'{producto_buscado['nombre']}' fue agregado al carrito."
+            )
+
+    else:
+        st.error("No existe un producto con ese ID.")
 
 elif opcion == "🛒 Carrito":
     st.header("🛒 Carrito de compras")
